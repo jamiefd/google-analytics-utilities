@@ -261,7 +261,7 @@ function modifyGA4Entities(sheetName) {
             createResponse = createGA4Entity(ga4Resource, parent, payload).rollupProperty;
             responses.push(createResponse);
           }
-          if (entity[16] != 'TWO_MONTHS' || entity[17] != false) {
+          if ((entity[16] != 'TWO_MONTHS' || entity[17] != false) && entity[4] != 'PROPERTY_TYPE_SUBPROPERTY') {
             responses.push(
               updateDataRetentionSettings(entity[16], entity[17], 
                 createResponse.name + '/dataRetentionSettings'));
