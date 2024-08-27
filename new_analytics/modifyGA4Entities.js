@@ -239,7 +239,9 @@ function modifyGA4Entities(sheetName) {
           let createResponse = '';
           if (entity[4] == 'PROPERTY_TYPE_SUBPROPERTY') {
             const subpropertyEventFilter = JSON.parse(entity[7]);
-            delete subpropertyEventFilter.name;
+            if(subpropertyEventFilter.name){
+              delete subpropertyEventFilter.name;
+            }
             payload.propertyType = entity[4];
             const subpropertySettings = {
               parent: entity[5],
